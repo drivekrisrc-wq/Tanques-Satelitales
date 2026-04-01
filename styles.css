@@ -1,0 +1,307 @@
+/* ============================================================
+   styles.css  –  Dashboard Tanques Satelitales – TNG
+   ============================================================ */
+
+/* ── Reset y base ─────────────────────────────────────────── */
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+:root {
+  --azul:        #1e3a5f;
+  --azul-medio:  #2e75b6;
+  --azul-claro:  #e8f1fb;
+  --urgente-bg:  #fdecea;
+  --urgente:     #c62828;
+  --proximo-bg:  #fff3e0;
+  --proximo:     #e65100;
+  --medio-bg:    #fffde7;
+  --medio:       #f57f17;
+  --bajo-bg:     #e8f5e9;
+  --bajo:        #2e7d32;
+  --gris-texto:  #444;
+  --gris-borde:  #dde3ea;
+  --gris-fondo:  #f4f6f9;
+  --blanco:      #ffffff;
+  --radio:       8px;
+  --sombra:      0 2px 8px rgba(0,0,0,0.08);
+}
+
+body {
+  font-family: Arial, sans-serif;
+  background: var(--gris-fondo);
+  color: var(--gris-texto);
+  font-size: 14px;
+  line-height: 1.5;
+}
+
+/* ── Header ──────────────────────────────────────────────── */
+.header {
+  background: var(--azul);
+  color: #fff;
+  padding: 18px 32px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.header-title { font-size: 18px; font-weight: 700; letter-spacing: .3px; }
+.header-sub   { font-size: 12px; opacity: .75; margin-top: 2px; }
+
+.header-meta {
+  text-align: right;
+  font-size: 12px;
+  opacity: .8;
+}
+
+/* ── Layout principal ────────────────────────────────────── */
+.main { max-width: 1280px; margin: 0 auto; padding: 24px 24px 48px; }
+
+/* ── Sección ─────────────────────────────────────────────── */
+.seccion { margin-bottom: 28px; }
+
+.seccion-titulo {
+  font-size: 13px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: .6px;
+  color: var(--azul-medio);
+  margin-bottom: 12px;
+  padding-bottom: 6px;
+  border-bottom: 2px solid var(--azul-claro);
+}
+
+/* ── Tarjetas de resumen ─────────────────────────────────── */
+.cards-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+  gap: 14px;
+  margin-bottom: 14px;
+}
+
+.card {
+  background: var(--blanco);
+  border-radius: var(--radio);
+  padding: 16px 18px;
+  box-shadow: var(--sombra);
+  border-left: 5px solid transparent;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+.card.urgente { border-color: var(--urgente); background: var(--urgente-bg); }
+.card.proximo { border-color: var(--proximo); background: var(--proximo-bg); }
+.card.medio   { border-color: var(--medio);   background: var(--medio-bg);   }
+.card.bajo    { border-color: var(--bajo);    background: var(--bajo-bg);    }
+
+.card-numero {
+  font-size: 36px;
+  font-weight: 700;
+  line-height: 1;
+}
+.card.urgente .card-numero { color: var(--urgente); }
+.card.proximo .card-numero { color: var(--proximo); }
+.card.medio   .card-numero { color: var(--medio);   }
+.card.bajo    .card-numero { color: var(--bajo);    }
+
+.card-label { font-size: 11px; font-weight: 700; text-transform: uppercase; letter-spacing: .4px; opacity: .8; }
+.card-desc  { font-size: 11px; opacity: .65; }
+
+/* Tarjeta volumen total */
+.card-volumen {
+  background: var(--blanco);
+  border-radius: var(--radio);
+  padding: 14px 18px;
+  box-shadow: var(--sombra);
+  display: flex;
+  align-items: center;
+  gap: 24px;
+}
+.card-volumen span { font-size: 12px; color: #666; }
+.card-volumen strong { font-size: 15px; color: var(--azul); }
+
+/* ── Filtros ─────────────────────────────────────────────── */
+.filtros { display: flex; gap: 8px; margin-bottom: 14px; flex-wrap: wrap; }
+
+.filtro-btn {
+  padding: 6px 14px;
+  border-radius: 20px;
+  border: 1.5px solid var(--gris-borde);
+  background: var(--blanco);
+  cursor: pointer;
+  font-size: 12px;
+  font-weight: 600;
+  color: #555;
+  transition: all .15s;
+}
+.filtro-btn:hover  { border-color: var(--azul-medio); color: var(--azul-medio); }
+.filtro-btn.activo { background: var(--azul-medio); color: #fff; border-color: var(--azul-medio); }
+
+/* ── Barras de tanques ───────────────────────────────────── */
+.barras-container { display: flex; flex-direction: column; gap: 10px; }
+
+.barra-row {
+  display: grid;
+  grid-template-columns: 200px 1fr 220px;
+  align-items: center;
+  gap: 12px;
+  background: var(--blanco);
+  border-radius: var(--radio);
+  padding: 10px 14px;
+  box-shadow: var(--sombra);
+}
+
+.barra-label { display: flex; flex-direction: column; gap: 2px; }
+.barra-id    { font-weight: 700; font-size: 13px; color: var(--azul); }
+.barra-tipo  { font-size: 11px; color: #888; }
+
+.barra-track {
+  height: 14px;
+  background: #eaeef3;
+  border-radius: 7px;
+  overflow: hidden;
+}
+
+.barra-fill {
+  height: 100%;
+  border-radius: 7px;
+  transition: width .4s ease;
+}
+.barra-fill.urgente { background: var(--urgente); }
+.barra-fill.proximo { background: var(--proximo); }
+.barra-fill.medio   { background: var(--medio);   }
+.barra-fill.bajo    { background: var(--bajo);     }
+
+.barra-meta {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 10px;
+}
+.barra-pct { font-weight: 700; font-size: 13px; min-width: 42px; text-align: right; }
+
+/* ── Badge ───────────────────────────────────────────────── */
+.badge {
+  display: inline-block;
+  padding: 3px 9px;
+  border-radius: 4px;
+  font-size: 11px;
+  font-weight: 700;
+  white-space: nowrap;
+}
+.badge.urgente { background: var(--urgente-bg); color: var(--urgente); }
+.badge.proximo { background: var(--proximo-bg); color: var(--proximo); }
+.badge.medio   { background: var(--medio-bg);   color: var(--medio);   }
+.badge.bajo    { background: var(--bajo-bg);    color: var(--bajo);    }
+
+/* ── Tabla ───────────────────────────────────────────────── */
+.tabla-wrap {
+  overflow-x: auto;
+  background: var(--blanco);
+  border-radius: var(--radio);
+  box-shadow: var(--sombra);
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 13px;
+}
+
+thead th {
+  background: var(--azul);
+  color: #fff;
+  padding: 10px 14px;
+  text-align: left;
+  font-size: 11px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: .4px;
+  white-space: nowrap;
+}
+thead th:first-child { border-radius: var(--radio) 0 0 0; }
+thead th:last-child  { border-radius: 0 var(--radio) 0 0; }
+
+tbody tr { border-bottom: 1px solid var(--gris-borde); }
+tbody tr:last-child { border-bottom: none; }
+tbody tr:hover { background: var(--azul-claro); }
+tbody td { padding: 9px 14px; }
+
+.tabla-barra-wrap {
+  position: relative;
+  height: 18px;
+  background: #eaeef3;
+  border-radius: 4px;
+  overflow: hidden;
+  min-width: 100px;
+}
+.tabla-barra-fill {
+  position: absolute;
+  top: 0; left: 0; height: 100%;
+  border-radius: 4px;
+  opacity: .85;
+}
+.tabla-barra-label {
+  position: absolute;
+  top: 0; left: 0; right: 0; bottom: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 11px;
+  font-weight: 700;
+  color: #333;
+  z-index: 1;
+}
+
+/* ── Gráfica tendencia ───────────────────────────────────── */
+.tendencia-controles {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 14px;
+  flex-wrap: wrap;
+}
+
+.tendencia-controles label { font-size: 13px; font-weight: 600; color: #555; }
+
+.tendencia-controles select {
+  padding: 6px 10px;
+  border: 1.5px solid var(--gris-borde);
+  border-radius: 6px;
+  font-size: 13px;
+  background: var(--blanco);
+  cursor: pointer;
+  color: var(--gris-texto);
+}
+
+.chart-wrap {
+  background: var(--blanco);
+  border-radius: var(--radio);
+  padding: 16px 20px;
+  box-shadow: var(--sombra);
+  height: 260px;
+}
+
+/* ── Leyenda ─────────────────────────────────────────────── */
+.leyenda {
+  display: flex;
+  gap: 18px;
+  flex-wrap: wrap;
+  font-size: 12px;
+  margin-top: 10px;
+}
+.leyenda-item { display: flex; align-items: center; gap: 6px; }
+.leyenda-dot  { width: 12px; height: 12px; border-radius: 3px; flex-shrink: 0; }
+
+/* ── Responsivo ──────────────────────────────────────────── */
+@media (max-width: 768px) {
+  .header { flex-direction: column; align-items: flex-start; gap: 6px; }
+  .header-meta { text-align: left; }
+  .main { padding: 16px 14px 40px; }
+
+  .barra-row {
+    grid-template-columns: 1fr;
+    gap: 6px;
+  }
+  .barra-meta { justify-content: flex-start; }
+
+  .cards-grid { grid-template-columns: repeat(2, 1fr); }
+}

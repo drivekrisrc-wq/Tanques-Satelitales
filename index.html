@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Dashboard – Tanques Satelitales | TNG</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+
+  <!-- ── Header ─────────────────────────────────────────── -->
+  <header class="header">
+    <div>
+      <div class="header-title">Tanques Satelitales – Hutchison Ports TNG</div>
+      <div class="header-sub">Monitoreo de aguas residuales y aceitosas</div>
+    </div>
+    <div class="header-meta">
+      Última actualización: <strong id="ultima-actualizacion">—</strong>
+    </div>
+  </header>
+
+  <main class="main">
+
+    <!-- ── Resumen general ──────────────────────────────── -->
+    <section class="seccion">
+      <div class="seccion-titulo">Resumen general</div>
+
+      <div class="cards-grid">
+        <div class="card urgente" id="card-urgente">
+          <div class="card-numero">—</div>
+          <div class="card-label">Retiro urgente</div>
+          <div class="card-desc">&ge; 90% de capacidad</div>
+        </div>
+        <div class="card proximo" id="card-proximo">
+          <div class="card-numero">—</div>
+          <div class="card-label">Retiro próximo</div>
+          <div class="card-desc">75% – 89%</div>
+        </div>
+        <div class="card medio" id="card-medio">
+          <div class="card-numero">—</div>
+          <div class="card-label">Nivel medio</div>
+          <div class="card-desc">50% – 74%</div>
+        </div>
+        <div class="card bajo" id="card-bajo">
+          <div class="card-numero">—</div>
+          <div class="card-label">Nivel bajo</div>
+          <div class="card-desc">&lt; 50% de capacidad</div>
+        </div>
+      </div>
+
+      <div class="card-volumen">
+        <div>
+          <span>Volumen total almacenado</span><br>
+          <strong id="vol-actual">—</strong>
+        </div>
+        <div>
+          <span>Capacidad total instalada</span><br>
+          <strong id="vol-total">—</strong>
+        </div>
+        <div>
+          <span>Ocupación global</span><br>
+          <strong id="pct-global">—</strong>
+        </div>
+      </div>
+    </section>
+
+    <!-- ── Niveles por tanque ───────────────────────────── -->
+    <section class="seccion">
+      <div class="seccion-titulo">Nivel por tanque</div>
+
+      <div class="filtros">
+        <button class="filtro-btn activo" data-tipo="todos">Todos</button>
+        <button class="filtro-btn" data-tipo="Aguas Residuales">Aguas residuales</button>
+        <button class="filtro-btn" data-tipo="Aguas Aceitosas">Aguas aceitosas</button>
+      </div>
+
+      <div class="barras-container" id="barras-container"></div>
+    </section>
+
+    <!-- ── Tabla detalle ────────────────────────────────── -->
+    <section class="seccion">
+      <div class="seccion-titulo">Detalle de tanques</div>
+      <div class="tabla-wrap">
+        <table>
+          <thead>
+            <tr>
+              <th>Tanque</th>
+              <th>Tipo</th>
+              <th>Capacidad</th>
+              <th>Nivel actual</th>
+              <th>% Llenado</th>
+              <th>Estado</th>
+              <th>Días desde retiro</th>
+              <th>Último registro</th>
+            </tr>
+          </thead>
+          <tbody id="tabla-body"></tbody>
+        </table>
+      </div>
+    </section>
+
+    <!-- ── Tendencia histórica ──────────────────────────── -->
+    <section class="seccion">
+      <div class="seccion-titulo">Tendencia histórica</div>
+
+      <div class="tendencia-controles">
+        <label for="select-tanque">Ver tanque:</label>
+        <select id="select-tanque"></select>
+      </div>
+
+      <div class="chart-wrap">
+        <canvas id="chart-tendencia"></canvas>
+      </div>
+
+      <div class="leyenda">
+        <div class="leyenda-item"><div class="leyenda-dot" style="background:#c62828"></div> Retiro urgente (&ge;90%)</div>
+        <div class="leyenda-item"><div class="leyenda-dot" style="background:#e65100"></div> Retiro próximo (75–89%)</div>
+        <div class="leyenda-item"><div class="leyenda-dot" style="background:#f57f17"></div> Nivel medio (50–74%)</div>
+        <div class="leyenda-item"><div class="leyenda-dot" style="background:#43a047"></div> Nivel bajo (&lt;50%)</div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- Chart.js desde CDN -->
+  <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.0/dist/chart.umd.min.js"></script>
+  <!-- Datos primero, lógica después -->
+  <script src="data.js"></script>
+  <script src="app.js"></script>
+
+</body>
+</html>

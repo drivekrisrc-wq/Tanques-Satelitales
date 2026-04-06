@@ -76,6 +76,7 @@ function renderBarras() {
       <div class="barra-label">
         <span class="barra-id">TS-${t.id}</span>
         <span class="barra-tipo">${t.tipo}</span>
+        ${t.ubicacion ? `<span class="barra-ubicacion">${t.ubicacion}</span>` : ''}
       </div>
       <div class="barra-track">
         <div class="barra-fill ${estadoClass}" style="width: ${pctWidth}%"></div>
@@ -83,6 +84,7 @@ function renderBarras() {
       <div class="barra-meta">
         <span class="barra-pct">${pctDisplay}</span>
         <span class="badge ${estadoClass}">${estado}</span>
+        ${t.notas ? `<span class="badge-nota">${t.notas}</span>` : ''}
       </div>
     `;
     contenedor.appendChild(row);
@@ -91,34 +93,6 @@ function renderBarras() {
 
 // ── Tabla detalle ─────────────────────────────────────────────────────────────
 
-function renderTabla() {
-  const tbody = document.getElementById("tabla-body");
-  tbody.innerHTML = "";
-
-  const lista = [...tanquesFiltrados()].sort((a, b) => b.pct - a.pct);
-
-  lista.forEach(t => {
-    const estado      = getEstado(t.pct);
-    const estadoClass = getEstadoClass(estado);
-    const tr = document.createElement("tr");
-    tr.innerHTML = `
-      <td><strong>TS-${t.id}</strong></td>
-      <td>${t.tipo}</td>
-      <td>${fmtM3(t.capacidad)}</td>
-      <td>${fmtM3(t.nivel)}</td>
-      <td>
-        <div class="tabla-barra-wrap">
-          <div class="tabla-barra-fill ${estadoClass}" style="width:${(t.pct*100).toFixed(1)}%"></div>
-          <span class="tabla-barra-label">${fmtPct(t.pct)}</span>
-        </div>
-      </td>
-      <td><span class="badge ${estadoClass}">${estado}</span></td>
-      <td>${t.diasDesdeRetiro} días</td>
-      <td>${t.fechaRegistro}</td>
-    `;
-    tbody.appendChild(tr);
-  });
-}
 
 // ── Gráfica de tendencia (canvas) ─────────────────────────────────────────────
 
@@ -239,8 +213,8 @@ function renderFecha() {
 document.addEventListener("DOMContentLoaded", () => {
   renderFecha();
   renderResumen();
+  initFiltros();
   renderBarras();
-  renderTabla();
   poblarSelectTanques();
   renderTendencia();
 

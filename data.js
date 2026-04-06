@@ -7,7 +7,7 @@
 const ULTIMA_ACTUALIZACION = "01/04/2026";
 
 const TANQUES = [
-  { id: 1,  tipo: "Aguas Residuales", capacidad: 10,  nivel: 9,    pct: 0.90, fechaRegistro: "30/03/2026", diasDesdeRetiro: 5,  ubicacion: "", notas: "" },
+  { id: 1,  tipo: "Aguas Residuales", capacidad: 10,  nivel: 9,    pct: 0.90, fechaRegistro: "30/03/2026", diasDesdeRetiro: 5,  ubicacion: "Dique 5", notas: "" },
   { id: 2,  tipo: "Aguas Residuales", capacidad: 30,  nivel: 15,   pct: 0.50, fechaRegistro: "30/03/2026", diasDesdeRetiro: 12,  ubicacion: "", notas: "" },
   { id: 4,  tipo: "Aguas Aceitosas",  capacidad: 5.7, nivel: 0,    pct: 0.00, fechaRegistro: "30/03/2026", diasDesdeRetiro: 2,  ubicacion: "", notas: "" },
   { id: 5,  tipo: "Aguas Residuales", capacidad: 7.5, nivel: 0,    pct: 0.00, fechaRegistro: "30/03/2026", diasDesdeRetiro: 20,  ubicacion: "", notas: "" },

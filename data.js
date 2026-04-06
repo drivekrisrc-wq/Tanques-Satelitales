@@ -7,18 +7,18 @@
 const ULTIMA_ACTUALIZACION = "01/04/2026";
 
 const TANQUES = [
-  { id: 1,  tipo: "Aguas Residuales", capacidad: 10,  nivel: 9,    pct: 0.90, fechaRegistro: "30/03/2026", diasDesdeRetiro: 5,  notas: "" },
-  { id: 2,  tipo: "Aguas Residuales", capacidad: 30,  nivel: 15,   pct: 0.50, fechaRegistro: "30/03/2026", diasDesdeRetiro: 12, notas: "" },
-  { id: 4,  tipo: "Aguas Aceitosas",  capacidad: 5.7, nivel: 0,    pct: 0.00, fechaRegistro: "30/03/2026", diasDesdeRetiro: 2,  notas: "" },
-  { id: 5,  tipo: "Aguas Residuales", capacidad: 7.5, nivel: 0,    pct: 0.00, fechaRegistro: "30/03/2026", diasDesdeRetiro: 20, notas: "" },
-  { id: 6,  tipo: "Aguas Residuales", capacidad: 7.5, nivel: 7.5,  pct: 1.00, fechaRegistro: "30/03/2026", diasDesdeRetiro: 8,  notas: "Contaminado" },
-  { id: 7,  tipo: "Aguas Residuales", capacidad: 7.5, nivel: 0,    pct: 0.00, fechaRegistro: "30/03/2026", diasDesdeRetiro: 3,  notas: "" },
-  { id: 8,  tipo: "Aguas Aceitosas",  capacidad: 5.7, nivel: 5.7,  pct: 1.00, fechaRegistro: "30/03/2026", diasDesdeRetiro: 7,  notas: "" },
-  { id: 9,  tipo: "Aguas Aceitosas",  capacidad: 5.7, nivel: 5.7,  pct: 1.00, fechaRegistro: "30/03/2026", diasDesdeRetiro: 25, notas: "" },
-  { id: 10, tipo: "Aguas Aceitosas",  capacidad: 5.7, nivel: 2.28, pct: 0.40, fechaRegistro: "30/03/2026", diasDesdeRetiro: 10, notas: "" },
-  { id: 13, tipo: "Aguas Aceitosas",  capacidad: 5.7, nivel: 0,    pct: 0.00, fechaRegistro: "30/03/2026", diasDesdeRetiro: 1,  notas: "" },
-  { id: 14, tipo: "Aguas Aceitosas",  capacidad: 5.7, nivel: 2.28, pct: 0.40, fechaRegistro: "30/03/2026", diasDesdeRetiro: 18, notas: "" },
-  { id: 15, tipo: "Aguas Residuales", capacidad: 7.5, nivel: 1.5,  pct: 0.20, fechaRegistro: "30/03/2026", diasDesdeRetiro: 9,  notas: "Contaminado" },
+  { id: 1,  tipo: "Aguas Residuales", capacidad: 10,  nivel: 9,    pct: 0.90, fechaRegistro: "30/03/2026", diasDesdeRetiro: 5,  ubicacion: "", notas: "" },
+  { id: 2,  tipo: "Aguas Residuales", capacidad: 30,  nivel: 15,   pct: 0.50, fechaRegistro: "30/03/2026", diasDesdeRetiro: 12,  ubicacion: "", notas: "" },
+  { id: 4,  tipo: "Aguas Aceitosas",  capacidad: 5.7, nivel: 0,    pct: 0.00, fechaRegistro: "30/03/2026", diasDesdeRetiro: 2,  ubicacion: "", notas: "" },
+  { id: 5,  tipo: "Aguas Residuales", capacidad: 7.5, nivel: 0,    pct: 0.00, fechaRegistro: "30/03/2026", diasDesdeRetiro: 20,  ubicacion: "", notas: "" },
+  { id: 6,  tipo: "Aguas Residuales", capacidad: 7.5, nivel: 7.5,  pct: 1.00, fechaRegistro: "30/03/2026", diasDesdeRetiro: 8,  ubicacion: "", notas: "Contaminado" },
+  { id: 7,  tipo: "Aguas Residuales", capacidad: 7.5, nivel: 0,    pct: 0.00, fechaRegistro: "30/03/2026", diasDesdeRetiro: 3,  ubicacion: "", notas: "" },
+  { id: 8,  tipo: "Aguas Aceitosas",  capacidad: 5.7, nivel: 5.7,  pct: 1.00, fechaRegistro: "30/03/2026", diasDesdeRetiro: 7,  ubicacion: "", notas: "" },
+  { id: 9,  tipo: "Aguas Aceitosas",  capacidad: 5.7, nivel: 5.7,  pct: 1.00, fechaRegistro: "30/03/2026", diasDesdeRetiro: 25,  ubicacion: "", notas: "" },
+  { id: 10, tipo: "Aguas Aceitosas",  capacidad: 5.7, nivel: 2.28, pct: 0.40, fechaRegistro: "30/03/2026", diasDesdeRetiro: 10,  ubicacion: "", notas: "" },
+  { id: 13, tipo: "Aguas Aceitosas",  capacidad: 5.7, nivel: 0,    pct: 0.00, fechaRegistro: "30/03/2026", diasDesdeRetiro: 1,  ubicacion: "", notas: "" },
+  { id: 14, tipo: "Aguas Aceitosas",  capacidad: 5.7, nivel: 2.28, pct: 0.40, fechaRegistro: "30/03/2026", diasDesdeRetiro: 18,  ubicacion: "", notas: "" },
+  { id: 15, tipo: "Aguas Residuales", capacidad: 7.5, nivel: 1.5,  pct: 0.20, fechaRegistro: "30/03/2026", diasDesdeRetiro: 9,  ubicacion: "", notas: "Contaminado" },
 ];
 
 const HISTORIAL = [

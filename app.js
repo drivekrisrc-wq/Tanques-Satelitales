@@ -76,6 +76,7 @@ function renderBarras() {
       <div class="barra-label">
         <span class="barra-id">TS-${t.id}</span>
         <span class="barra-tipo">${t.tipo}</span>
+        ${t.ubicacion ? `<span class="barra-ubicacion">${t.ubicacion}</span>` : ''}
       </div>
       <div class="barra-track">
         <div class="barra-fill ${estadoClass}" style="width: ${pctWidth}%"></div>

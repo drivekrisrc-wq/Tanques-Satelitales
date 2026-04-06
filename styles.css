@@ -152,6 +152,7 @@ body {
 .barra-label { display: flex; flex-direction: column; gap: 2px; }
 .barra-id    { font-weight: 700; font-size: 13px; color: var(--azul); }
 .barra-tipo  { font-size: 11px; color: #888; }
+.barra-ubicacion { font-size: 11px; color: #aaa; font-style: italic; }
 
 .barra-track {
   height: 14px;
@@ -191,6 +192,17 @@ body {
 .badge.proximo { background: var(--proximo-bg); color: var(--proximo); }
 .badge.medio   { background: var(--medio-bg);   color: var(--medio);   }
 .badge.bajo    { background: var(--bajo-bg);    color: var(--bajo);    }
+
+.badge-nota {
+  display: inline-block;
+  padding: 3px 8px;
+  border-radius: 4px;
+  font-size: 11px;
+  font-weight: 700;
+  background: #f3e5f5;
+  color: #6a1b9a;
+  white-space: nowrap;
+}
 
 /* ── Tabla ───────────────────────────────────────────────── */
 .tabla-wrap {
